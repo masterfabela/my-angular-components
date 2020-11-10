@@ -1,84 +1,61 @@
+* {
+  --base-color: #fff;
+  --undone-color: #e1e1e1;
+  --done-color: #50c690;
+  --transparent-color: #ffffff00;
+  /*--percentage-deg: ((180deg / 100) * var(--percentage));*/
+  --width: 20px;
+  --margin-inside: 2px;
+  --font-inside-size: 7px;
+  --inside-width: calc(var(--width) - var(--margin-inside) * 2);
+}
 
-
-
-// Donut Chart Mixin
-.donut-chart {
-  position: relative;
+.circle-wrap {
+  width: var(--width);
+  height: var(--width);
+  background: #e6e2e7;
   border-radius: 50%;
-  overflow: hidden;
-
-  .slice {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+}
+.circle-wrap .circle .mask,
+.circle-wrap .circle .fill {
+  width: var(--width);
+  height: var(--width);
+  position: absolute;
+  border-radius: 50%;
+}
+.circle-wrap .circle .mask {
+  clip: rect(0px, var(--width), var(--width), calc(var(--width) / 2));
+}
+.circle-wrap .circle .mask .fill {
+  clip: rect(0px, calc(var(--width) / 2), var(--width), 0px);
+  background-color: var(--done-color);
+}
+.circle-wrap .circle .mask.full,
+.circle-wrap .circle .fill {
+  animation: fill ease-in-out 3s;
+  transform: rotate(120deg);
+}
+@keyframes fill {
+  0% {
+    transform: rotate(0deg);
   }
-
-  .chart-center {
-    position: absolute;
-    border-radius: 50%;
-  
-    span {
-      display: block;
-      text-align: center;
-    }
+  100% {
+    transform: rotate(120deg);
   }
 }
 
-@mixin donut-chart($name, $perc, $size, $width, $base, $center, $color, $textColor: $color, $textSize: 40px) {
-  
-  $color2: $color;
-  $base2: $base;
-	$deg: ($perc/100*360)+deg;
-	$deg1: 90deg;
-	$deg2: $deg;
-	
-	// If percentage is less than 50%
-	@if $perc < 50 {
-		$base: $color;
-    $color: $base2;
-    $color2: $base2;
-    $deg1: ($perc/100*360+90)+deg;
-		$deg2: 0deg;
-	}
-    
-  .donut-chart {
-    &#{$name} {
-      width: $size;
-      height: $size;
-      background: $base;
-      .slice {
-        &.one {
-          clip: rect(0 $size $size/2 0);
-          -webkit-transform: rotate($deg1);
-          transform: rotate($deg1);
-          background: $color;
-        }
-        &.two {
-          clip: rect(0 $size/2 $size 0);
-          -webkit-transform: rotate($deg2);
-          transform: rotate($deg2);
-          background: $color2;
-        }
-      }
-      .chart-center {
-        top: $width;
-        left: $width;
-        width: $size - ($width * 2);
-        height: $size - ($width * 2);
-        background: $center;
-        span {
-          font-size: $textSize;
-          line-height: $size - ($width * 2);
-          color: $textColor;
-          &:after {
-          content: '#{$perc}%';
-          }
-        }
-      }
-    }
-  }
+.circle-wrap .inside-circle {
+  width: var(--inside-width);
+  height: var(--inside-width);
+  line-height: var(--inside-width);
+  border-radius: 50%;
+  background: var(--base-color);
+  text-align: center;
+  margin-top: var(--margin-inside);
+  margin-left: var(--margin-inside);
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  font-size: var(--font-inside-size);
+  color: var(--done-color);
 }
-
-@include donut-chart('.chart1', 75, 150px, 10px, #e1e1e1, #fff, #50c690);
