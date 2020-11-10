@@ -6,7 +6,10 @@ import { Component, ElementRef, Input, OnInit } from '@angular/core';
   styleUrls: ['chart-donut.component.scss'],
 })
 export class ChartDonutComponent implements OnInit {
-  @Input() percentage;
+  @Input() percentage = 25;
+  @Input() width = '35px';
+  @Input() font = '12px';
+  @Input() barWeight = '4px';
 
   constructor(private elementRef: ElementRef) {}
 
@@ -14,6 +17,15 @@ export class ChartDonutComponent implements OnInit {
     this.elementRef.nativeElement.style.setProperty(
       '--percentage',
       this.percentage
+    );
+    this.elementRef.nativeElement.style.setProperty('--width', this.width);
+    this.elementRef.nativeElement.style.setProperty(
+      '--font-inside-size',
+      this.font
+    );
+    this.elementRef.nativeElement.style.setProperty(
+      '--margin-inside',
+      this.barWeight
     );
   }
 }

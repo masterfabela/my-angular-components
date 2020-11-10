@@ -3,7 +3,6 @@
   --undone-color: #e1e1e1;
   --done-color: #50c690;
   --transparent-color: #ffffff00;
-  /*--percentage-deg: ((180deg / 100) * var(--percentage));*/
   --width: 20px;
   --margin-inside: 3px;
   --font-inside-size: 6px;
@@ -17,6 +16,7 @@
   height: var(--width);
   background: #e6e2e7;
   border-radius: 50%;
+  position: relative;
 }
 .circle-wrap .circle .mask,
 .circle-wrap .circle .fill {
@@ -53,8 +53,7 @@
   border-radius: 50%;
   background: var(--base-color);
   text-align: center;
-  margin-top: var(--margin-inside);
-  margin-left: var(--margin-inside);
+  margin: var(--margin-inside);
   position: absolute;
   z-index: 100;
   font-weight: 500;
