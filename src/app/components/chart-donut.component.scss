@@ -34,7 +34,7 @@
 }
 .circle-wrap .circle .mask.full,
 .circle-wrap .circle .fill {
-  animation: fill ease-in-out 3s;
+  animation: fill ease-in-out 1s;
   transform: rotate(var(--percentage-deg));
 }
 @keyframes fill {
@@ -55,7 +55,7 @@
   text-align: center;
   margin: var(--margin-inside);
   position: absolute;
-  z-index: 100;
+  z-index: 1;
   font-weight: 500;
   font-size: var(--font-inside-size);
   color: var(--done-color);
