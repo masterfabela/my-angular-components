@@ -1,13 +1,15 @@
-* {
+:host {
   --base-color: #fff;
   --undone-color: #e1e1e1;
   --done-color: #50c690;
   --transparent-color: #ffffff00;
   /*--percentage-deg: ((180deg / 100) * var(--percentage));*/
   --width: 20px;
-  --margin-inside: 2px;
-  --font-inside-size: 7px;
+  --margin-inside: 3px;
+  --font-inside-size: 6px;
   --inside-width: calc(var(--width) - var(--margin-inside) * 2);
+  --percentage: 0;
+  --percentage-deg: calc(180deg / 100 * var(--percentage));
 }
 
 .circle-wrap {
@@ -33,14 +35,14 @@
 .circle-wrap .circle .mask.full,
 .circle-wrap .circle .fill {
   animation: fill ease-in-out 3s;
-  transform: rotate(120deg);
+  transform: rotate(var(--percentage-deg));
 }
 @keyframes fill {
   0% {
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(120deg);
+    transform: rotate(var(--percentage-deg));
   }
 }
 
@@ -55,7 +57,7 @@
   margin-left: var(--margin-inside);
   position: absolute;
   z-index: 100;
-  font-weight: 700;
+  font-weight: 500;
   font-size: var(--font-inside-size);
   color: var(--done-color);
 }

@@ -1,14 +1,4 @@
-<!--
-<div class="donut-chart chart1">
-  <div class="slice one"></div>
-  <div class="slice two"></div>
-  <div class="chart-center">
-    <span></span>
-  </div>
-</div>
--->
-
-<div class="circle-wrap">
+<div class="circle-wrap" [ngStyle]="{ '--percentage': percentage }">
   <div class="circle">
     <div class="mask full">
       <div class="fill"></div>
@@ -16,6 +6,6 @@
     <div class="mask half">
       <div class="fill"></div>
     </div>
-    <div class="inside-circle">70%</div>
+    <div class="inside-circle">{{ percentage }}%</div>
   </div>
 </div>
