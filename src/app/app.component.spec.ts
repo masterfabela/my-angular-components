@@ -1,10 +1,13 @@
 import { async, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ChartColumnsModule } from './components/chart-columns/chart-columns.module';
+import { ChartDonutModule } from './components/chart-donut/chart-donut.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
+      imports: [ChartDonutModule, ChartColumnsModule],
     }).compileComponents();
   }));
 
