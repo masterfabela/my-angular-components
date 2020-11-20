@@ -12,15 +12,17 @@ export interface Column {
   styleUrls: ['./chart-column.component.scss'],
 })
 export class ChartColumnComponent implements OnInit {
-  @Input() columnData: Column;
+  @Input() columnData: Column = {};
 
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit(): void {
-    this.elementRef.nativeElement.style.setProperty(
-      '--percentage',
-      this.columnData.percentage + '%'
-    );
+    if (this.columnData.percentage) {
+      this.elementRef.nativeElement.style.setProperty(
+        '--percentage',
+        this.columnData.percentage + '%'
+      );
+    }
     if (this.columnData.color) {
       this.elementRef.nativeElement.style.setProperty(
         '--color',
