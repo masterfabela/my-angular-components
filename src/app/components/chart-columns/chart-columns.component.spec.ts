@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ChartColumnComponent } from './chart-column/chart-column.component';
 import { ChartColumnsComponent } from './chart-columns.component';
+import { ChartColumnsModule } from './chart-columns.module';
 
 describe('ChartColumnsComponent', () => {
   let component: ChartColumnsComponent;
@@ -8,7 +8,7 @@ describe('ChartColumnsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ChartColumnComponent],
+      imports: [ChartColumnsModule],
     }).compileComponents();
   }));
 
