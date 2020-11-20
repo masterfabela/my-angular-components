@@ -5,6 +5,6 @@ import { ChartDonutComponent } from './chart-donut.component';
 @NgModule({
   declarations: [ChartDonutComponent],
   imports: [CommonModule],
-  exports: [ChartDonutComponent]
+  exports: [ChartDonutComponent],
 })
 export class ChartDonutModule {}
