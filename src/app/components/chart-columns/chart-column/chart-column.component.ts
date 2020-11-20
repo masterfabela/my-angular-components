@@ -1,18 +1,12 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
-
-export interface Column {
-  color?: string;
-  percentage?: number;
-  name?: string;
-}
-
+import { ChartColumn } from './chart-column.model';
 @Component({
   selector: 'chart-column',
   templateUrl: './chart-column.component.html',
   styleUrls: ['./chart-column.component.scss'],
 })
 export class ChartColumnComponent implements OnInit {
-  @Input() columnData: Column = {};
+  @Input() columnData: ChartColumn = {};
 
   constructor(private elementRef: ElementRef) {}
 

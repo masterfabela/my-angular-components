@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Column } from './chart-column/chart-column.component';
+import { ChartColumn } from './chart-column/chart-column.model';
 
 @Component({
   selector: 'chart-columns',
@@ -7,7 +7,7 @@ import { Column } from './chart-column/chart-column.component';
   styleUrls: ['./chart-columns.component.scss'],
 })
 export class ChartColumnsComponent implements OnInit {
-  @Input() columns: Column[];
+  @Input() columns: ChartColumn[];
 
   constructor() {}
 

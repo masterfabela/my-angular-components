@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Column } from './components/chart-columns/chart-column/chart-column.component';
+import { ChartColumn } from './components/chart-columns/chart-column/chart-column.model';
 
 @Component({
   selector: 'app-root',
@@ -23,9 +23,11 @@ export class AppComponent {
     { percentage: 20 },
   ];
 
-  columnsDataChart: Column[] = this.asignColorsByPercentage(this.newColums);
+  columnsDataChart: ChartColumn[] = this.asignColorsByPercentage(
+    this.newColums
+  );
 
-  asignColorsByPercentage(columns: Column[]): Column[] {
+  asignColorsByPercentage(columns: ChartColumn[]): ChartColumn[] {
     return columns.map((column) => {
       if (column.percentage > 70) {
         column.color = 'green';
